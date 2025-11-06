@@ -1,0 +1,19 @@
+using System;
+class Program {
+    static void Main() {
+        Console.Write("Preço unitário do produto: ");
+        double preco = double.Parse(Console.ReadLine());
+        Console.Write("Quantidade comprada: ");
+        int qtd = int.Parse(Console.ReadLine());
+        Console.Write("Dinheiro recebido: ");
+        double recebido = double.Parse(Console.ReadLine());
+        double total = preco * qtd;
+        if (recebido >= total) {
+            double troco = recebido - total;
+            Console.WriteLine($"TROCO = R$ {troco:F2}");
+        } else {
+            double falta = total - recebido;
+            Console.WriteLine($"DINHEIRO INSUFICIENTE. FALTAM R$ {falta:F2}");
+        }
+    }
+}

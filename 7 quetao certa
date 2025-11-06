@@ -1,0 +1,54 @@
+using System;
+class ProgramaPassagem
+{
+    static void Main()
+    {
+        Console.WriteLine("=== Sistema de Passagens ===");
+        Console.WriteLine("Ponto de partida: São Luís");
+        Console.WriteLine("Códigos de destino:");
+        Console.WriteLine("1 - Morros (R$ 120,00)");
+        Console.WriteLine("2 - Barreirinhas (R$ 200,00)");
+        Console.WriteLine("3 - Bacabeira (R$ 50,00)");
+        Console.WriteLine("4 - Rosário (R$ 80,00)");
+        Console.Write("\nDigite o código do destino: ");
+        int codigo = int.Parse(Console.ReadLine());
+        double valorPassagem = 0;
+        string destino = "";
+
+        switch (codigo)
+        {
+            case 1:
+                destino = "Morros";
+                valorPassagem = 120.00;
+                break;
+            case 2:
+                destino = "Barreirinhas";
+                valorPassagem = 200.00;
+                break;
+            case 3:
+                destino = "Bacabeira";
+                valorPassagem = 50.00;
+                break;
+            case 4:
+                destino = "Rosário";
+                valorPassagem = 80.00;
+                break;
+            default:
+                Console.WriteLine("Código inválido!");
+                return;
+        }
+        Console.Write("A passagem é de ida e volta? (s/n): ");
+        char resposta = char.Parse(Console.ReadLine().ToLower());
+        double valorTotal;
+        if (resposta == 's')
+        {
+            valorTotal = (valorPassagem * 2) * 0.9; // Ida e volta com 10% de desconto
+        }
+        else
+        {
+            valorTotal = valorPassagem; // Só ida
+        }
+        Console.WriteLine($"\nDestino: {destino}");
+        Console.WriteLine($"Valor total da passagem: R$ {valorTotal:F2}");
+    }
+}

@@ -1,0 +1,14 @@
+using System;
+class Program {
+    static void Main() {
+        Console.Write("Digite o valor da passagem: ");
+        double valor = double.Parse(Console.ReadLine());
+        Console.Write("A viagem é de ida e volta? (s/n): ");
+        char resposta = char.Parse(Console.ReadLine().ToLower());
+        double total = valor;
+        if (resposta == 's') {
+            total = valor * 2 * 0.9; // desconto de 10%
+        }
+        Console.WriteLine($"Valor total a pagar: R$ {total:F2}");
+    }
+}
